@@ -29,4 +29,13 @@ public class SquareServiceTest {
                         ", but was " + squareService.getResult("KING"),
                 "[1,2]->[1,3]->[0,3]->[0,2]", squareService.getResult("KING"));
     }
+
+    @Test
+    public void testWhenLeterIsntInMatrix() {
+        SquareService squareService = new SquareService("QLGNAEKIRLRNGEAE");
+        Assert.assertEquals("The test was failed! The expected result " +
+                        "is [1,2]->[X]->[0,3]->[0,2]" +
+                        ", but was " + squareService.getResult("KING"),
+                "[1,2]->[X]->[0,3]->[0,2]", squareService.getResult("KZNG"));
+    }
 }

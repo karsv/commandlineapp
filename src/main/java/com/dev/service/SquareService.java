@@ -7,7 +7,8 @@ public class SquareService {
 
     public SquareService(String inputString) {
         if (inputString == null
-                || (Math.sqrt(inputString.length()) - Math.floor(Math.sqrt(inputString.length())) > 0)
+                || (Math.sqrt(inputString.length())
+                - Math.floor(Math.sqrt(inputString.length())) > 0)
                 || inputString.length() == 0
         ) {
             throw new WrongInpuStringException(
@@ -22,8 +23,9 @@ public class SquareService {
         char[][] newMatrix = new char[c][c];
         for (int i = 0; i < c; i++) {
             for (int j = 0; j < c; j++) {
-                if (p < s.length())
+                if (p < s.length()) {
                     newMatrix[i][j] = s.charAt(p);
+                }
                 p++;
             }
         }
@@ -38,7 +40,8 @@ public class SquareService {
                     continue;
                 }
                 for (int k = 0; k < matrixOfChars[i].length; k++) {
-                    if (String.valueOf(word.charAt(i)).equals(String.valueOf(matrixOfChars[j][k]))) {
+                    if (String.valueOf(word.charAt(i))
+                            .equals(String.valueOf(matrixOfChars[j][k]))) {
                         result[i] = "[" + j + "," + k + "]";
                         continue;
                     }
@@ -52,11 +55,15 @@ public class SquareService {
         String[] positionOfChars = getPositionOfWordLeterrsInMatrix(word);
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < positionOfChars.length; i++) {
-            if (i == positionOfChars.length - 1) {
+            if (positionOfChars[i] == null) {
+                stringBuilder.append("[X]");
+            } else {
                 stringBuilder.append(positionOfChars[i]);
+            }
+            if (i == positionOfChars.length - 1) {
                 continue;
             }
-            stringBuilder.append(positionOfChars[i]).append("->");
+            stringBuilder.append("->");
         }
         return stringBuilder.toString();
     }
