@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class SquareServiceTest {
+    private static final String INPUTSTRING = "QLGNAEKIRLRNGEAE";
 
     @Test(expected = WrongInpuStringException.class)
     public void testConstructorWithAssimetricParametr() {
@@ -23,7 +24,7 @@ public class SquareServiceTest {
 
     @Test
     public void testCorrectResult() {
-        SquareService squareService = new SquareService("QLGNAEKIRLRNGEAE");
+        SquareService squareService = new SquareService(INPUTSTRING);
         Assert.assertEquals("The test was failed! The expected result " +
                         "is [1,2]->[1,3]->[0,3]->[0,2]" +
                         ", but was " + squareService.getResult("KING"),
@@ -32,10 +33,10 @@ public class SquareServiceTest {
 
     @Test
     public void testWhenLeterIsntInMatrix() {
-        SquareService squareService = new SquareService("QLGNAEKIRLRNGEAE");
+        SquareService squareService = new SquareService(INPUTSTRING);
         Assert.assertEquals("The test was failed! The expected result " +
                         "is [1,2]->[X]->[0,3]->[0,2]" +
-                        ", but was " + squareService.getResult("KING"),
+                        ", but was " + squareService.getResult("KZNG"),
                 "[1,2]->[X]->[0,3]->[0,2]", squareService.getResult("KZNG"));
     }
 }
