@@ -52,6 +52,9 @@ public class SquareService {
     }
 
     public String getResult(String word) {
+        if (word == null || word.length() == 0) {
+            throw new WrongInpuStringException("The input parameters of finding word is wrong!");
+        }
         String[] positionOfChars = getPositionOfWordLeterrsInMatrix(word);
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < positionOfChars.length; i++) {

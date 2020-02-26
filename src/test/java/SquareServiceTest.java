@@ -22,6 +22,18 @@ public class SquareServiceTest {
         SquareService squareService = new SquareService(null);
     }
 
+    @Test(expected = WrongInpuStringException.class)
+    public void testNullAsFindingWord() {
+        SquareService squareService = new SquareService(INPUTSTRING);
+        squareService.getResult(null);
+    }
+
+    @Test(expected = WrongInpuStringException.class)
+    public void testEmptyStringAsFindingWord() {
+        SquareService squareService = new SquareService(null);
+        squareService.getResult("");
+    }
+
     @Test
     public void testCorrectResult() {
         SquareService squareService = new SquareService(INPUTSTRING);
