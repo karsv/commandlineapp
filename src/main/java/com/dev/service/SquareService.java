@@ -73,7 +73,6 @@ public class SquareService {
         List<Letter> path = new ArrayList<>();
         List<Letter> result = new ArrayList<>();
 
-
         for (int i = 0; i < matrixOfChars.length; ++i) {
             for (int j = 0; j < matrixOfChars.length; ++j) {
                 impOfDeepFindSearch(matrixOfChars, word, new Letter(i, j), path, 0, result);

@@ -1,5 +1,5 @@
-import com.dev.WrongInpuStringException;
 import com.dev.NoResultException;
+import com.dev.WrongInpuStringException;
 import com.dev.service.SquareService;
 
 import org.junit.Assert;
@@ -32,13 +32,13 @@ public class SquareServiceTest {
     @Test(expected = WrongInpuStringException.class)
     public void testNullAsFindingWord() {
         SquareService squareService = new SquareService();
-        squareService.getResult(INPUTCORRECTMATRIX,null);
+        squareService.getResult(INPUTCORRECTMATRIX, null);
     }
 
     @Test(expected = WrongInpuStringException.class)
     public void testEmptyStringAsFindingWord() {
         SquareService squareService = new SquareService();
-        squareService.getResult(INPUTCORRECTMATRIX,"");
+        squareService.getResult(INPUTCORRECTMATRIX, "");
     }
 
     @Test
