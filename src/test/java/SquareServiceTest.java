@@ -1,5 +1,5 @@
 import com.dev.WrongInpuStringException;
-import com.dev.service.NoResultException;
+import com.dev.NoResultException;
 import com.dev.service.SquareService;
 
 import org.junit.Assert;
@@ -55,6 +55,4 @@ public class SquareServiceTest {
         SquareService squareService = new SquareService();
         squareService.getResult(INPUTNOTCORRECTMATRIX, NOTCORRECTWORD);
     }
-
-
 }

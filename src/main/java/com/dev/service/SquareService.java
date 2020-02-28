@@ -1,5 +1,6 @@
 package com.dev.service;
 
+import com.dev.NoResultException;
 import com.dev.WrongInpuStringException;
 
 import java.util.ArrayList;
@@ -8,7 +9,6 @@ import java.util.List;
 public class SquareService {
     private static final int[] ROW = {-1, 0, 0, 1};
     private static final int[] COL = {0, -1, 1, 0};
-    private List<Letter> result = new ArrayList<>();
 
     boolean isNextStep(Letter next, List<Letter> path, int len) {
         return (next.posX >= 0) && (next.posX < len) && (next.posY >= 0)
@@ -16,7 +16,7 @@ public class SquareService {
     }
 
     private void impOfDeepFindSearch(char[][] matrix, String word, Letter next,
-                                     List<Letter> path, int index) {
+                                     List<Letter> path, int index, List<Letter> result) {
         int i = next.posX;
         int j = next.posY;
         int n = word.length();
@@ -39,7 +39,7 @@ public class SquareService {
             next = new Letter(i + ROW[k], j + COL[k]);
 
             if (isNextStep(next, path, matrix.length)) {
-                impOfDeepFindSearch(matrix, word, next, path, index + 1);
+                impOfDeepFindSearch(matrix, word, next, path, index + 1, result);
             }
         }
         path.remove(path.size() - 1);
@@ -71,10 +71,12 @@ public class SquareService {
     private String[] getPositionOfWordLeterrsInMatrix(char[][] matrixOfChars, String word) {
         String[] stringResult = new String[word.length()];
         List<Letter> path = new ArrayList<>();
+        List<Letter> result = new ArrayList<>();
+
 
         for (int i = 0; i < matrixOfChars.length; ++i) {
             for (int j = 0; j < matrixOfChars.length; ++j) {
-                impOfDeepFindSearch(matrixOfChars, word, new Letter(i, j), path, 0);
+                impOfDeepFindSearch(matrixOfChars, word, new Letter(i, j), path, 0, result);
             }
         }
 
