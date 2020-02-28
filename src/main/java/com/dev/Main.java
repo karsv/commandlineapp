@@ -4,8 +4,7 @@ import com.dev.service.SquareService;
 
 public class Main {
     public static void main(String[] args) {
-
-        SquareService squareService = new SquareService(args[0]);
-        System.out.println(squareService.getResult(args[1]));
+        SquareService squareService = new SquareService();
+        System.out.println(squareService.getResult(args[0], args[1]));
     }
 }
