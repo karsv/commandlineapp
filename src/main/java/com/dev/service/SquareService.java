@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SquareService {
-    private static final int[] ROW = {-1, -1, -1, 0, 0, 1, 1, 1};
-    private static final int[] COL = {-1, 0, 1, -1, 1, -1, 0, 1};
+    private static final int[] ROW = {-1, 0, 0, 1};
+    private static final int[] COL = {0, -1, 1, 0};
     private List<Letter> result = new ArrayList<>();
 
-    private boolean isNextStep(Letter next, List<Letter> path, int len) {
+    boolean isNextStep(Letter next, List<Letter> path, int len) {
         return (next.posX >= 0) && (next.posX < len) && (next.posY >= 0)
                 && (next.posY < len) && (!path.contains(next));
     }
@@ -35,7 +35,7 @@ public class SquareService {
 
         path.add(new Letter(i, j));
 
-        for (int k = 0; k < 8; k++) {
+        for (int k = 0; k < 4; k++) {
             next = new Letter(i + ROW[k], j + COL[k]);
 
             if (isNextStep(next, path, matrix.length)) {
